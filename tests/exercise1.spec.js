@@ -10,3 +10,16 @@ test('Google title should contain Google', async ({ page }) => {
   await expect(page).toHaveTitle(/Google/);
 
 });
+
+//TEST 2: Open Wikipedia and check title
+test('Wikipedia title should contain wikipedia', async ({page}) => {
+
+    //Step 1: Got to wikipedia
+    await page.goto('https://wikipedia.org')
+
+    //Step 2: Check title has the word 'wikipedia'
+    await expect(page).toHaveTitle(/wikipedia/i);
+
+
+});
+
