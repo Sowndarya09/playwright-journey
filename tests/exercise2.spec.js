@@ -9,6 +9,16 @@ test.describe('Books website tests', () => {
 
     });
 
+    test.afterEach(async ({ page }, testInfo) => {
+    
+    console.log(`Test: ${testInfo.title} - Status: ${testInfo.status}`);
+    
+    if(testInfo.status === 'failed') {
+        console.log(`Failed at URL: ${await page.url()}`);
+    }
+
+});
+
 // TEST 1: Check the Books website loads correctly
 test('Books site should have correct title', async ({ page }) => {
 
