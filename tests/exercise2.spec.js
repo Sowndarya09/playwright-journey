@@ -1,14 +1,18 @@
 const { test, expect } = require('@playwright/test');
-const { link } = require('node:fs');
-const { title } = require('node:process');
 
-// TEST 1: Check the Books website loads correctly
-test('Books site should have correct title', async ({ page }) => {
+test.describe('Books website tests', () => {
+
+    test.beforeEach(async({page}) => {
 
     // Step 1: Go to the site
     await page.goto('http://books.toscrape.com');
 
-    // Step 2: Check the title
+    });
+
+// TEST 1: Check the Books website loads correctly
+test('Books site should have correct title', async ({ page }) => {
+
+        // Step 2: Check the title
     await expect(page).toHaveTitle(/book/i);
 
 });
@@ -16,9 +20,6 @@ test('Books site should have correct title', async ({ page }) => {
 
 // TEST 2: Click on a book and check the detail page loads
 test('Should click a book and open detail page', async ({ page }) => {
-
-    // Step 1: Go to the site
-    await page.goto('http://books.toscrape.com');
 
     // Step 2: Find the first book title and click it
     //await page.locator('article h3 a').first().click();
@@ -36,9 +37,6 @@ test('Should click a book and open detail page', async ({ page }) => {
 
 // TEST 3: Click on a book that costs under £20 and check price is visible on the detail page
 test('Should click a book that costs under 20 and check price is visible on the detail page', async ({ page }) => {
-
-    // Step 1: Go to the site
-    await page.goto('http://books.toscrape.com');
 
     // Step 2: Find the book title that costs under 20 and click it
     await page.getByTitle('Set Me Free').click();
@@ -58,5 +56,8 @@ test('Should click a book that costs under 20 and check price is visible on the 
     console.log('The Price is: ', price)
     const priceNumber = parseFloat(price.replace(/[^0-9.]/g,''));
     await expect(priceNumber).toBeLessThan(20);
+
+});
+
 
 });
