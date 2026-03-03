@@ -17,3 +17,25 @@ expect(body.email).toContain('@');
 
 
 });
+
+//Test 2: POST - create a new User
+test('Create a new user', async({request}) =>{
+
+const response = await request.post('https://jsonplaceholder.typicode.com/users', {
+    data:{
+        name: 'Sownd',
+        email: 'sownd@gmail.com',
+        username: 'sragu'
+
+    }
+});
+
+//Validation
+expect(response.status()).toBe(201);
+
+const body = await response.json();
+expect(body.name).toBe('Sownd')
+expect(body.email).toContain('@');
+expect(body.username).toBe('sragu');
+
+});
