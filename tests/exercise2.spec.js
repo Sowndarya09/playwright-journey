@@ -5,7 +5,7 @@ test.describe('Books website tests', () => {
     test.beforeEach(async({page}) => {
 
     // Step 1: Go to the site
-    await page.goto('http://books.toscrape.com');
+    await page.goto('/');
 
     });
 

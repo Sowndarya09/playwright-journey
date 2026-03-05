@@ -6,7 +6,7 @@ class BookPage{
 
     //Goto the page url
      async goto(){
-        await this.page.goto('http://books.toscrape.com');
+        await this.page.goto('/');
     }
 
     //Click the book title variable passed
