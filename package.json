@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "My Playwright learning path - SDET comeback",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "cucumber": "cucumber-js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sowndarya09/playwright-journey.git"
@@ -21,6 +24,7 @@
     "@types/node": "^25.3.2"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^12.7.0",
     "dotenv": "^17.3.1"
   }
 }
